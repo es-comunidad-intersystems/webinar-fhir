@@ -7,7 +7,8 @@ Este repositorio contiene los ejemplos y las instrucciones para el Webinar - Com
 * [Docker](https://www.docker.com/products/docker-desktop) - para ejecutar [IRIS for Health Community](https://www.intersystems.com/products/intersystems-iris-for-health/).
 * [Postman](https://www.postman.com/downloads/) - para lanzar peticiones REST.
 
-# Instalar Repositorio FHIR
+# REPOSITORIO FHIR
+## Instalación
 1. Descarga el repositorio
 ```shell
 git clone https://github.com/es-comunidad-intersystems/webinar-fhir
@@ -28,31 +29,37 @@ docker-compose up
 5. Creamos un namespace *foundation* donde instalaremos el *FHIR Server* que configuraremos como repositorio FHIR.
 ```objectscript
 zn "HSLIB"
-do ##class(HS.HC.Util.Installer).InstallFoundation("FHIRNamespace)
+do ##class(HS.HC.Util.Installer).InstallFoundation("FHIRNamespace")
 zn "FHIRNamespace"
 ```
 
-# Configurar FHIR Server
+## Configuración
 Configuraremos nuestro *FHIR Server* para que actúe como un repositorio FHIR R4.
 
 Utilizaremos la *UI* aunque también podemos hacerlo de forma prográmatica.
 
-Accede a [Mng. Portal > Health > FHIRNamespace](http://localhost:52773/csp/healthshare/fhirnamespace/HS.HC.UI.Home.cls)
-
-Click en *FHIR Configuration*, y añade un nuevo *endpoint*:
+Accede a [Mng. Portal > Health > FHIRNamespace](http://localhost:52773/csp/healthshare/fhirnamespace/HS.HC.UI.Home.cls), haz click en **FHIR Configuration**, y añade un nuevo *endpoint*:
 * Metadata Set: `HL7v40`
 * Interaction Stragegy: `HS.FHIRServer.Storage.Json.InteractionStrategy`
 * Name: `/csp/healthshare/fhirnamespace/fhir/r4`
 
 Después de añadirlo, editamos su configuración y habilitamos la opción de *Debugging* `Allow Unauthenticated Access` para poder realizar pruebas fácilmente.
 
-# Ejemplos simples
-* Metadata - Capability Statement
-* Create Patient
-* Read Patient
-* Modify Patient
-* Read Version
-* Create Observation
+## Pruebas simples
+Vamos a ejecutar unas pruebas sencillas en el *endpoint* FHIR R4 que acabamos de crear.
+
+Importa en **Postman** la colección [IRIS FHIRServer.postman_collection.json](IRIS%20FHIRServer.postman_collection.json).
+
+Echa un vistazo a las peticiones bajo el directorio *Simple*. Si las ejecutas en orden te permitirán:
+* Ver el *Capability Statement* del *FHIR Server*.
+* Crear un paciente.
+* Obtener el paciente creado.
+* Modificar un paciente.
+* Crear una observación clínica.
+* Obtener una versión específica del paciente (antes de la modificación).
+* Consultar observaciones.
+* Consultar pacientes.
+* Consultar pacientes por distintos criterios.
 
 # TODO. Clases
 Diagrama herencia
