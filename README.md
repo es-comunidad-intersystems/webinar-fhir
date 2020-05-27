@@ -10,8 +10,8 @@ Este repositorio contiene los ejemplos y las instrucciones para el Webinar - Com
 # Instalar Repositorio FHIR
 1. Descarga el repositorio
 ```console
-git clone https://github.com/es-comunidad-intersystems/webinar-fhir
-cd webinar-fhir
+$ git clone https://github.com/es-comunidad-intersystems/webinar-fhir
+$ cd webinar-fhir
 ```
 
 2. Inicia la instancia [IRIS for Health](https://www.intersystems.com/products/intersystems-iris-for-health/)
