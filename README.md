@@ -1,30 +1,45 @@
 
+Este repositorio contiene los ejemplos y las instrucciones para el Webinar - Comienza a trabajar con FHIR. 
 
-# Iniciar instancia IRIS
+<img src="img/webinar-fhir.png">
+
+# ¿Qué necesitas?
+* [Docker](https://www.docker.com/products/docker-desktop) - para ejecutar [IRIS for Health Community](https://www.intersystems.com/products/intersystems-iris-for-health/).
+* [Postman](https://www.postman.com/downloads/) - para lanzar peticiones REST.
+
+# Instalar Repositorio FHIR
+1. Descarga el repositorio
+```console
+git clone https://github.com/es-comunidad-intersystems/webinar-fhir
+cd webinar-fhir
 ```
+
+2. Inicia la instancia [IRIS for Health](https://www.intersystems.com/products/intersystems-iris-for-health/)
+```console
 docker-compose up
 ```
-Podremos acceder al [Mng. Portal](http://localhost:52773/csp/sys/UtilHome.csp)
 
-# Instalación FHIR Server
-Abrimos una session de terminal interactiva con IRIS:
-```
-docker exec -it iris-fhir bash
-iris session IRIS
-```
+3. Con la instancia en marcha, podrás acceder al [Mng. Portal](http://localhost:52773/csp/sys/UtilHome.csp)
+* Usuario: `superuser`
+* Password: `SYS`
 
-Crear un namespace *foundation* donde estará el FHIR Server 
+4. Abre una sesión interactiva utilizando [WebTerminal](http://localhost:52773/terminal/)
+
+5. Creamos un namespace *foundation* donde instalaremos el *FHIR Server* que configuraremos como repositorio FHIR.
 ```objectscript
 zn "HSLIB"
-do ##class(HS.HC.Util.Installer).InstallFoundation("FHIRNamespace")
-zn "FHIRNAMESPACE"
+do ##class(HS.HC.Util.Installer).InstallFoundation("FHIRNamespace)
+zn "FHIRNamespace"
 ```
 
 # Configurar FHIR Server
-Utilizaremos la UI aunque también podemos hacerlo de forma prográmatica.
-[Mng. Portal > Health > FHIRNamespace](http://localhost:52773/csp/healthshare/fhirnamespace/HS.HC.UI.Home.cls)
+Configuraremos nuestro *FHIR Server* para que actúe como un repositorio FHIR R4.
 
-Click en *FHIR Configuration* , añadimos un nuevo endpoint:
+Utilizaremos la *UI* aunque también podemos hacerlo de forma prográmatica.
+
+Accede a [Mng. Portal > Health > FHIRNamespace](http://localhost:52773/csp/healthshare/fhirnamespace/HS.HC.UI.Home.cls)
+
+Click en *FHIR Configuration*, y añade un nuevo *endpoint*:
 * Metadata Set: `HL7v40`
 * Interaction Stragegy: `HS.FHIRServer.Storage.Json.InteractionStrategy`
 * Name: `/csp/healthshare/fhirnamespace/fhir/r4`
