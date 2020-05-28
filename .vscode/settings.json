@@ -3,7 +3,7 @@
     "objectscript.conn.docker-compose.internalPort": 52773,
     "objectscript.conn.docker-compose.service": "iris-fhir",
     "objectscript.conn.ns": "FHIRNamespace",
-    "objectscript.conn.password": "sys",
+    "objectscript.conn.password": "SYS",
     "objectscript.conn.username": "superuser",
     "objectscript.export.generated": true
 }

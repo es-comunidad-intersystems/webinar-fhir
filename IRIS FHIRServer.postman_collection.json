@@ -257,6 +257,242 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Queries",
+			"item": [
+				{
+					"name": "get Patient. gender Female",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient?gender=female",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{fhirendpoint}}",
+								"Patient"
+							],
+							"query": [
+								{
+									"key": "gender",
+									"value": "female"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Observation. Potassium paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Observation?code=http://loinc.org|6298-4&_count=10",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{fhirendpoint}}",
+								"Observation"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "http://loinc.org|6298-4"
+								},
+								{
+									"key": "_count",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Observation. Potassium < 4",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Observation?code=http://loinc.org|6298-4&value-quantity=lt4.0|http://unitsofmeasure.org|mmol/L",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{fhirendpoint}}",
+								"Observation"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "http://loinc.org|6298-4"
+								},
+								{
+									"key": "value-quantity",
+									"value": "lt4.0|http://unitsofmeasure.org|mmol/L"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Observation. Glucose",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Observation?code=http://loinc.org|2339-0",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{fhirendpoint}}",
+								"Observation"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "http://loinc.org|2339-0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Patient/4/Observation. Final",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/4/Observation?status=final",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{fhirendpoint}}",
+								"Patient",
+								"4",
+								"Observation"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "final"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Patient/4 $everything",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/4/$everything",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{fhirendpoint}}",
+								"Patient",
+								"4",
+								"$everything"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Observation Weight > 80 Kg since d",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Observation?code=http://loinc.org|29463-7&value-quantity=gt80.0|http://unitsofmeasure.org|kg&date=ge2019-10-01",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{fhirendpoint}}",
+								"Observation"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "http://loinc.org|29463-7"
+								},
+								{
+									"key": "value-quantity",
+									"value": "gt80.0|http://unitsofmeasure.org|kg"
+								},
+								{
+									"key": "date",
+									"value": "ge2019-10-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Encounter. Bronchitis Amb since d",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Encounter?reason-code=http://snomed.info/sct|10509002&class=http://terminology.hl7.org/CodeSystem/v3-ActCode|AMB&date=ge2018-01-01",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{fhirendpoint}}",
+								"Encounter"
+							],
+							"query": [
+								{
+									"key": "reason-code",
+									"value": "http://snomed.info/sct|10509002"
+								},
+								{
+									"key": "class",
+									"value": "http://terminology.hl7.org/CodeSystem/v3-ActCode|AMB"
+								},
+								{
+									"key": "date",
+									"value": "ge2018-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -283,19 +519,19 @@
 	],
 	"variable": [
 		{
-			"id": "3366a8ad-2e8c-4ff9-b19b-ca031d95f075",
+			"id": "265812fc-b0fd-482e-8309-57c9baa5c7ee",
 			"key": "server",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "000eef77-08ee-410b-a8c0-10310c866078",
+			"id": "a703ced8-da88-4d43-9e65-f46c1fdc8463",
 			"key": "fhirendpoint",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b11e41ca-3d15-45af-ac2f-fd616817c403",
+			"id": "bb7a544d-b7d7-437d-9fdd-8de8b90168a7",
 			"key": "port",
 			"value": "",
 			"type": "string"
