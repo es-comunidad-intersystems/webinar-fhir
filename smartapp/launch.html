@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Growth Chart SMART Application</title>
+    <script src="node_modules/fhirclient/build/fhir-client.js"></script>
+    <script>
+      var url = new URL(window.location.href);
+      var patientId = url.searchParams.get("patientId");
+      
+      FHIR.oauth2.authorize({
+        "client_id": "growth_chart",
+        "patientId": patientId,
+        "scope":  "patient/Observation.read patient/Patient.read offline_access",
+      });
+    </script>
+  </head>
+  <body>Loading...</body>
+</html>

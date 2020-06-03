@@ -7,7 +7,7 @@ Este repositorio contiene los ejemplos y las instrucciones para el Webinar - Com
 * [Docker](https://www.docker.com/products/docker-desktop) - para ejecutar [IRIS for Health Community](https://www.intersystems.com/products/intersystems-iris-for-health/).
 * [Postman](https://www.postman.com/downloads/) - para lanzar peticiones REST.
 
-# REPOSITORIO FHIR
+# Repositorio FHIR
 Construiremos un repositorio de recursos [FHIR R4](https://www.hl7.org/fhir/) utilizando las funcionalidades de [FHIR Server](https://docs.intersystems.com/irisforhealth20202/csp/docbook/DocBook.UI.Page.cls) de la nueva [preview 2020.2 de IRIS for Health](https://es.community.intersystems.com/post/versiones-de-prueba-de-intersystems-iris-e-iris-health-20202). 
 
 ## Instalación FHIR Server
@@ -74,6 +74,23 @@ Echemos un vistazo a alguno de los ficheros FHIR como [este ejemplo](fhir/August
 
 La lista completa de recursos disponibles en FHIR R4 está disponible [aquí](https://www.hl7.org/fhir/resourcelist.html).
 
+Los pacientes generados que vamos a cargar son:
+```
+7 -- Kendall673 Mitchell808 (8 y/o F) Shutesbury, Massachusetts 
+2 -- Augustine565 Cremin516 (8 y/o F) Worcester, Massachusetts 
+6 -- Hayden835 Kunde533 (29 y/o M) Taunton, Massachusetts 
+4 -- Linwood526 Jones311 (30 y/o M) Billerica, Massachusetts 
+5 -- Lizbeth716 Harvey63 (44 y/o F) Boston, Massachusetts DECEASED
+8 -- Rhett759 Mosciski958 (65 y/o M) Woburn, Massachusetts DECEASED
+3 -- Marlyn309 Orn563 (56 y/o F) Malden, Massachusetts 
+1 -- Mariano761 Gulgowski816 (53 y/o M) North Reading, Massachusetts 
+9 -- Jordan900 Zieme486 (2 y/o M) Gloucester, Massachusetts 
+10 -- Elisha578 Willms744 (63 y/o M) Brookline, Massachusetts 
+8 -- Shawn523 Lehner980 (74 y/o M) Woburn, Massachusetts 
+5 -- Alfreda3 Lemke654 (74 y/o F) Boston, Massachusetts 
+{alive=10, dead=2}
+```
+
 # Consultar datos generados
 A continuación podemos ejecutar algunas consultas sobre los datos que acabamos de importar.
 
@@ -85,13 +102,13 @@ Volvemos a **Postman**, y vamos a la carpeta *Queries* de la colección [IRIS FH
 
 Echa un vistazo directamente en SQL a los datos en el [Explorador SQL](http://localhost:52773/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=FHIRNAMESPACE):
 ```sql
-// recursos que se han creado
+-- recursos que se han creado
 select * from HSFHIR_I0001_R.Rsrc
 ```
 
 ```sql
-// tabla de búsqueda para pacientes
-select * from HSFHIR_I0001_S.Patient
+-- tabla de búsqueda para pacientes
+select * from HSFHIR_I0001_S.Patient order by birthdate desc
 ```
 
 # Debugging
@@ -119,37 +136,32 @@ set ^%ISCLOG("Category","HSFHIRServer")=5
 Y consultamos la información del log aquí:
 [Mng. Portal > System Explorer > Globals (%SYS) > ISCLOG](http://localhost:52773/csp/sys/exp/UtilExpGlobalView.csp?$ID2=ISCLOG&$NAMESPACE=%SYS)
 
+# HL7 a FHIR
+InterSystems incluye [transformaciones](https://docs.intersystems.com/irisforhealth20202/csp/docbook/Doc.View.cls?KEY=HXFHIR_transforms) que convierten objetos SDA en recursos FHIR y viceversa.
+
+[SDA](https://docs.intersystems.com/irisforhealth20202/csp/docbook/Doc.View.cls?KEY=HXSDA) es un formato clínico intermedio que facilita la transformación de un estándar en otro. 
+
+Un caso de uso típico es transformar mensajes HL7 en recursos FHIR. Con las transformaciones incluidas se puede hacer de forma HL7-SDA-FHIR.
+
+Además, puedes consultar cómo se consideran los campos HL7 y los recursos FHIR a la otra de transformar hacia o desde SDA en [Health > FHIRNamespace > Schema Documentation](http://localhost:52773/csp/healthshare/fhirnamespace/HS.HC.UI.Home.cls).
+
+Un ejemplo muy sencillo de cómo hacerlo lo encontramos en la aplicación [FHIR-HL7v2-SQL-Demo](https://openexchange.intersystems.com/package/FHIR-HL7v2-SQL-Demo).
+
+<img src="img/hl7-sda-fhir-demo.jpg" width="400">
 
 # SMART
-```
-git clone https://github.com/smart-on-fhir/growth-chart-app
-npm install
-npm start
-```
+Vamos a probar una de las aplicaciones más conocidas de la [SMART App Gallery](https://gallery.smarthealthit.org) de forma que se alimente de los datos que tenemos almacenados en nuestro *FHIR Server*.
 
-## Growth chart
+La aplicación [Growth Chart](https://github.com/smart-on-fhir/growth-chart-app) permite representar el crecimiento de un niño a lo largo del tiempo. 
 
-http://localhost:9000/launch.html?fhirServiceUrl=http://launch.smarthealthit.org/v/r3/fhir
-launch.html -> patientId: smart-1137192
+La aplicación ya está ejecutándose en uno de los [contenedores](docker-compose.yml) del webinar en modo de pruebas, para poder probarla rápidamente.
 
-http://localhost:9000/launch.html?fhirServiceUrl=http://localhost:52773/csp/healthshare/fhirnamespace/fhir/r4
-launch.html -> patientId: 1
+Para probarla necesitamos simplemente invocarla pasando el endpoint de nuestro *FHIRServer* y el paciente a consultar:
 
-http://localhost:9000/launch.html?iss=http://localhost:52773/csp/healthshare/fhirnamespace/fhir/r4&patientId=2710
-launch.html modificado
+http://localhost:9000/launch.html?iss=http://localhost:52773/csp/healthshare/fhirnamespace/fhir/r4&patientId=1152
 
-```
-<script>
-    var url = new URL(window.location.href);
-    var patientId = url.searchParams.get("patientId");
-    
-    FHIR.oauth2.authorize({
-    "client_id": "growth_chart",
-    "patientId": patientId,
-    "scope":  "patient/Observation.read patient/Patient.read offline_access",
-    // "client_id": "944d96a0-4caf-4a96-813e-bc38aadb1169" // HSPC
-    // "client_id": "5570f8be-6caf-4915-ae15-69545ab38e68" // Cerner
-    });
-</script>
-```
-Adela471 Pfeffer420 tiene datos
+Puedes volver a consultar los pacientes disponibles y probar con diferentes registros.
+
+<img src="img/growth-chart.png" width="400">
+
+Si estás interesado en las aplicaciones SMART on FHIR échale un vistazo a [Building SMART on FHIR Apps with InterSystems FHIR Sandbox](https://learning.intersystems.com/course/view.php?id=964) donde podrás aprender a desarrollar una aplicación simple.
