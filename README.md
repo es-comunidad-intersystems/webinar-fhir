@@ -136,7 +136,7 @@ set ^%ISCLOG("Category","HSFHIRServer")=5
 Y consultamos la información del log aquí:
 [Mng. Portal > System Explorer > Globals (%SYS) > ISCLOG](http://localhost:52773/csp/sys/exp/UtilExpGlobalView.csp?$ID2=ISCLOG&$NAMESPACE=%SYS)
 
-# HL7 a FHIR
+# HL7 a FHIR
 InterSystems incluye [transformaciones](https://docs.intersystems.com/irisforhealth20202/csp/docbook/Doc.View.cls?KEY=HXFHIR_transforms) que convierten objetos SDA en recursos FHIR y viceversa.
 
 [SDA](https://docs.intersystems.com/irisforhealth20202/csp/docbook/Doc.View.cls?KEY=HXSDA) es un formato clínico intermedio que facilita la transformación de un estándar en otro. 
