@@ -70,7 +70,7 @@ Vamos a cargar los ficheros con datos generados en IRIS utilizando `HS.FHIRServe
 do ##class(HS.FHIRServer.Tools.DataLoader).SubmitResourceFiles("/app/fhir/","FHIRServer","/csp/healthshare/fhirnamespace/fhir/r4")
 ```
 
-Echemos un vistazo a alguno de los ficheros FHIR como [este ejemplo](fhir/Augustine565_Wolf938_dac83fee-ea24-4a2c-975d-3e0cd95a395f.json) y comprueba los *resources* que contiene: [Bundle](https://www.hl7.org/fhir/bundle.html), [Patient](https://www.hl7.org/fhir/patient.html), [Practitioner](https://www.hl7.org/fhir/practitioner.html), [Organization](https://www.hl7.org/fhir/organization.html), [CareTeam](https://www.hl7.org/fhir/careteam.html), [CarePlan](https://www.hl7.org/fhir/careplan.html), [Claim](https://www.hl7.org/fhir/claim.html), [Coverage](https://www.hl7.org/fhir/coverage.html), [ExplanationOfBenefit](https://www.hl7.org/fhir/explanationofbenefit.html), [Encounter](https://www.hl7.org/fhir/encounter.html), [AllergyIntolerance](https://www.hl7.org/fhir/allergyintolerance.html), [Condition](https://www.hl7.org/fhir/condition.html), [Goal](https://www.hl7.org/fhir/goal.html), [Observation](https://www.hl7.org/fhir/observation.html), etc.
+Echa un vistazo a alguno de los [ficheros FHIR](fhir/) que vamos a cargar y comprueba los *resources* que contiene: [Bundle](https://www.hl7.org/fhir/bundle.html), [Patient](https://www.hl7.org/fhir/patient.html), [Practitioner](https://www.hl7.org/fhir/practitioner.html), [Organization](https://www.hl7.org/fhir/organization.html), [CareTeam](https://www.hl7.org/fhir/careteam.html), [CarePlan](https://www.hl7.org/fhir/careplan.html), [Claim](https://www.hl7.org/fhir/claim.html), [Coverage](https://www.hl7.org/fhir/coverage.html), [ExplanationOfBenefit](https://www.hl7.org/fhir/explanationofbenefit.html), [Encounter](https://www.hl7.org/fhir/encounter.html), [AllergyIntolerance](https://www.hl7.org/fhir/allergyintolerance.html), [Condition](https://www.hl7.org/fhir/condition.html), [Goal](https://www.hl7.org/fhir/goal.html), [Observation](https://www.hl7.org/fhir/observation.html), etc.
 
 La lista completa de recursos disponibles en FHIR R4 está disponible [aquí](https://www.hl7.org/fhir/resourcelist.html).
 
@@ -165,3 +165,5 @@ Puedes volver a consultar los pacientes disponibles y probar con diferentes regi
 <img src="img/growth-chart.png" width="400">
 
 Si estás interesado en las aplicaciones SMART on FHIR échale un vistazo a [Building SMART on FHIR Apps with InterSystems FHIR Sandbox](https://learning.intersystems.com/course/view.php?id=964) donde podrás aprender a desarrollar una aplicación simple.
+
+Por último, no olvides pasarte por [Getting Started Health | FHIR QuickStart](https://gettingstartedhealth.intersystems.com/standards-quickstarts/fhir-quickstart/)
