@@ -235,7 +235,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient?name:contains=hay",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient?name:contains=james",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -248,7 +248,7 @@
 							"query": [
 								{
 									"key": "name:contains",
-									"value": "hay"
+									"value": "james"
 								}
 							]
 						}
@@ -519,19 +519,19 @@
 	],
 	"variable": [
 		{
-			"id": "c7b9bd19-bd37-4c4e-929f-408985ed63d2",
+			"id": "36bffbc1-66db-480c-8cb9-158e45d60437",
 			"key": "server",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "08cd9690-f668-4b1e-a538-9024f1500ba5",
+			"id": "1ee11099-f5a6-4919-b7d6-dc8a85b4599a",
 			"key": "fhirendpoint",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "7d1a85d1-bc73-4979-b034-ac1d4445dd16",
+			"id": "d10857a4-bb86-442d-bd13-8941a12f7ceb",
 			"key": "port",
 			"value": "",
 			"type": "string"
