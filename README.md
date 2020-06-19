@@ -1,5 +1,5 @@
 
-Este repositorio contiene los ejemplos y las instrucciones para el Webinar - Comienza a trabajar con FHIR. 
+Aquí encontrarás los ejemplos utilizados en el [Webinar - Comienza a trabajar con FHIR](https://comunidadintersystems.com/webinar-comienza-a-trabajar-con-fhir), échale un vistazo al [vídeo](https://www.youtube.com/watch?v=tSozs51l_Hs&feature=youtu.be)👈. 
 
 <img src="img/webinar-fhir.png">
 
