@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e0a6be55-4c27-4523-963d-aca2ebcc9620",
+		"_postman_id": "109a4192-60cf-45ce-ab24-283ee480a72b",
 		"name": "IRIS FHIRServer",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -255,8 +255,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Queries",
@@ -491,15 +490,13 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "f77e96d1-7607-4e15-95a0-304c1175afe7",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -509,7 +506,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f8324234-157e-49d3-9742-17246a277bed",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -519,23 +515,16 @@
 	],
 	"variable": [
 		{
-			"id": "36bffbc1-66db-480c-8cb9-158e45d60437",
 			"key": "server",
-			"value": "",
-			"type": "string"
+			"value": "localhost"
 		},
 		{
-			"id": "1ee11099-f5a6-4919-b7d6-dc8a85b4599a",
 			"key": "fhirendpoint",
-			"value": "",
-			"type": "string"
+			"value": "csp/healthshare/fhirnamespace/fhir/r4"
 		},
 		{
-			"id": "d10857a4-bb86-442d-bd13-8941a12f7ceb",
 			"key": "port",
-			"value": "",
-			"type": "string"
+			"value": "52773"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

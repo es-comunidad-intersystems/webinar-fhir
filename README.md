@@ -8,7 +8,7 @@ Este repositorio contiene los ejemplos y las instrucciones para el Webinar - Com
 * [Postman](https://www.postman.com/downloads/) - para lanzar peticiones REST.
 
 # Repositorio FHIR
-Construiremos un repositorio de recursos [FHIR R4](https://www.hl7.org/fhir/) utilizando las funcionalidades de [FHIR Server](https://docs.intersystems.com/irisforhealth20202/csp/docbook/DocBook.UI.Page.cls) de la nueva [preview 2020.2 de IRIS for Health](https://es.community.intersystems.com/post/versiones-de-prueba-de-intersystems-iris-e-iris-health-20202). 
+Construiremos un repositorio de recursos [FHIR R4](https://www.hl7.org/fhir/) utilizando las funcionalidades de [FHIR Server](https://docs.intersystems.com/irisforhealth20202/csp/docbook/DocBook.UI.Page.cls?KEY=HXFHIR) de IRIS for Health. 
 
 ## Instalación FHIR Server
 1. Descarga el repositorio
