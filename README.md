@@ -103,12 +103,12 @@ Volvemos a **Postman**, y vamos a la carpeta *Queries* de la colección [IRIS FH
 Echa un vistazo directamente en SQL a los datos en el [Explorador SQL](http://localhost:52773/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=FHIRNAMESPACE):
 ```sql
 -- recursos que se han creado
-select * from HSFHIR_I0001_R.Rsrc
+select * from HSFHIR_X0001_R.Rsrc
 ```
 
 ```sql
 -- tabla de búsqueda para pacientes
-select * from HSFHIR_I0001_S.Patient order by birthdate desc
+select * from HSFHIR_X0001_S.Patient order by birthdate desc
 ```
 
 # Debugging
