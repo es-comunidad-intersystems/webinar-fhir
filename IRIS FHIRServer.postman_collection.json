@@ -235,7 +235,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient?name:contains=james",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient?name:contains=augustine",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -248,7 +248,7 @@
 							"query": [
 								{
 									"key": "name:contains",
-									"value": "james"
+									"value": "augustine"
 								}
 							]
 						}
@@ -373,12 +373,12 @@
 					"response": []
 				},
 				{
-					"name": "get Patient/3/Observation. Final",
+					"name": "get Patient/1150/Observation. Final",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/3/Observation?status=final",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/1150/Observation?status=final",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -387,7 +387,7 @@
 							"path": [
 								"{{fhirendpoint}}",
 								"Patient",
-								"3",
+								"1150",
 								"Observation"
 							],
 							"query": [
@@ -401,12 +401,12 @@
 					"response": []
 				},
 				{
-					"name": "get Patient/3 $everything",
+					"name": "get Patient/1150 $everything",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/3/$everything",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/1150/$everything",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -415,7 +415,7 @@
 							"path": [
 								"{{fhirendpoint}}",
 								"Patient",
-								"3",
+								"1150",
 								"$everything"
 							]
 						}
