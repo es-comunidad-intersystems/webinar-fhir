@@ -164,7 +164,7 @@ La aplicación ya está ejecutándose en uno de los [contenedores](docker-compos
 
 Para probarla necesitamos simplemente invocarla pasando el endpoint de nuestro *FHIRServer* y el paciente a consultar:
 
-http://localhost:9000/launch.html?iss=http://localhost:52773/csp/healthshare/fhirnamespace/fhir/r4&patientId=294
+http://localhost:9000/launch.html?iss=http://localhost:52773/csp/healthshare/fhirnamespace/fhir/r4&patientId=295
 
 Puedes volver a consultar los pacientes disponibles y probar con diferentes registros.
 

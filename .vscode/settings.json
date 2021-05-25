@@ -2,7 +2,7 @@
     "objectscript.conn.active": true,
     "objectscript.export.generated": true,
     "objectscript.conn": {
-        "active": false,
+        "active": true,
         "ns": "FHIRNamespace",
         "password": "SYS",
         "username": "superuser",
