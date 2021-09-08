@@ -27,7 +27,12 @@ docker-compose up
 * Password: `SYS`
 4. Abre una sesión interactiva utilizando [WebTerminal](http://localhost:52773/terminal/)
 
-5. Creamos un namespace *foundation* donde instalaremos el *FHIR Server* que configuraremos como repositorio FHIR.
+5. Creamos un namespace llamdado `FHIRNamespace` donde instalaremos el *FHIR Server* que configuraremos como repositorio FHIR.
+
+Puedes hacerlo a través del portal de gestión:
+*System > Configuration > Namespaces*
+
+o directamente por código:
 ```objectscript
 zn "HSLIB"
 do ##class(HS.HC.Util.Installer).InstallFoundation("FHIRNamespace")
@@ -40,7 +45,8 @@ Configuraremos nuestro *FHIR Server* para que actúe como un repositorio FHIR R4
 Utilizaremos la *UI* aunque también podemos hacerlo de forma prográmatica.
 
 Accede a [Mng. Portal > Health > FHIRNamespace](http://localhost:52773/csp/healthshare/fhirnamespace/HS.HC.UI.Home.cls), haz click en **FHIR Configuration**, y añade un nuevo *endpoint*:
-* Metadata Set: `HL7v40`
+* Core FHIR Package: `hl7.fhir.r4.core@4.0.1`
+* URL: `/csp/healthshare/fhirnamespace/fhir/r4`
 * Interaction Stragegy: `HS.FHIRServer.Storage.Json.InteractionStrategy`
 * Name: `/csp/healthshare/fhirnamespace/fhir/r4`
 
@@ -158,12 +164,10 @@ La aplicación ya está ejecutándose en uno de los [contenedores](docker-compos
 
 Para probarla necesitamos simplemente invocarla pasando el endpoint de nuestro *FHIRServer* y el paciente a consultar:
 
-http://localhost:9000/launch.html?iss=http://localhost:52773/csp/healthshare/fhirnamespace/fhir/r4&patientId=1152
+http://localhost:9000/launch.html?iss=http://localhost:52773/csp/healthshare/fhirnamespace/fhir/r4&patientId=295
 
 Puedes volver a consultar los pacientes disponibles y probar con diferentes registros.
 
 <img src="img/growth-chart.png" width="400">
-
-Si estás interesado en las aplicaciones SMART on FHIR échale un vistazo a [Building SMART on FHIR Apps with InterSystems FHIR Sandbox](https://learning.intersystems.com/course/view.php?id=964) donde podrás aprender a desarrollar una aplicación simple.
 
 Por último, no olvides pasarte por [Getting Started Health | FHIR QuickStart](https://gettingstartedhealth.intersystems.com/standards-quickstarts/fhir-quickstart/)
