@@ -27,17 +27,7 @@ docker-compose up
 * Password: `SYS`
 4. Abre una sesión interactiva utilizando [WebTerminal](http://localhost:52773/terminal/)
 
-5. Creamos un namespace llamdado `FHIRNamespace` donde instalaremos el *FHIR Server* que configuraremos como repositorio FHIR.
-
-Puedes hacerlo a través del portal de gestión:
-*System > Configuration > Namespaces*
-
-o directamente por código:
-```objectscript
-zn "HSLIB"
-do ##class(HS.HC.Util.Installer).InstallFoundation("FHIRNamespace")
-zn "FHIRNamespace"
-```
+5. La instancia ya tiene creado un namespace llamado `FHIRNamespace`, donde instalaremos el *FHIR Server* que configuraremos como repositorio FHIR.
 
 ## Configuración
 Configuraremos nuestro *FHIR Server* para que actúe como un repositorio FHIR R4.

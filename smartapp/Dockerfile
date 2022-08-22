@@ -11,8 +11,12 @@ WORKDIR /tmp/growth-chart-app-master
 
 # modify launch.html
 COPY launch.html .
+USER root
+RUN chown node:node launch.html
+RUN chmod ug+rw launch.html
 
 # install dependencies
+USER node
 RUN npm install
 
 # run server

@@ -170,7 +170,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Observation?code=http://loinc.org|6298-4",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Observation?code=http://loinc.org|15074-8",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -183,7 +183,7 @@
 							"query": [
 								{
 									"key": "code",
-									"value": "http://loinc.org|6298-4"
+									"value": "http://loinc.org|15074-8"
 								}
 							]
 						}
@@ -387,12 +387,12 @@
 					"response": []
 				},
 				{
-					"name": "get Patient/294/Observation. Final",
+					"name": "get Patient/296/Observation. Final",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/294/Observation?status=final",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/296/Observation?status=final",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -401,7 +401,7 @@
 							"path": [
 								"{{fhirendpoint}}",
 								"Patient",
-								"294",
+								"296",
 								"Observation"
 							],
 							"query": [
@@ -415,7 +415,7 @@
 					"response": []
 				},
 				{
-					"name": "get Patient/294 $everything",
+					"name": "get Patient/296 $everything",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -426,7 +426,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/1152/$everything",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/296/$everything",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -435,7 +435,7 @@
 							"path": [
 								"{{fhirendpoint}}",
 								"Patient",
-								"1152",
+								"296",
 								"$everything"
 							]
 						}
