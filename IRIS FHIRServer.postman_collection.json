@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "109a4192-60cf-45ce-ab24-283ee480a72b",
 		"name": "IRIS FHIRServer",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8116712"
 	},
 	"item": [
 		{
@@ -169,7 +170,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Observation",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Observation?code=http://loinc.org|6298-4",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -178,6 +179,12 @@
 							"path": [
 								"{{fhirendpoint}}",
 								"Observation"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "http://loinc.org|6298-4"
+								}
 							]
 						}
 					},
@@ -290,7 +297,14 @@
 					"name": "get Observation. Potassium paginated",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/fhir+xml",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"url": {
 							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Observation?code=http://loinc.org|6298-4&_count=10",
 							"protocol": "http",
@@ -373,12 +387,12 @@
 					"response": []
 				},
 				{
-					"name": "get Patient/1150/Observation. Final",
+					"name": "get Patient/294/Observation. Final",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/1150/Observation?status=final",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/294/Observation?status=final",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -387,7 +401,7 @@
 							"path": [
 								"{{fhirendpoint}}",
 								"Patient",
-								"1150",
+								"294",
 								"Observation"
 							],
 							"query": [
@@ -401,12 +415,18 @@
 					"response": []
 				},
 				{
-					"name": "get Patient/1150 $everything",
+					"name": "get Patient/294 $everything",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/fhir+xml",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/1150/$everything",
+							"raw": "http://{{server}}:{{port}}/{{fhirendpoint}}/Patient/1152/$everything",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
@@ -415,7 +435,7 @@
 							"path": [
 								"{{fhirendpoint}}",
 								"Patient",
-								"1150",
+								"1152",
 								"$everything"
 							]
 						}
